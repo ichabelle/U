@@ -1,0 +1,350 @@
+create database db_pll
+GO
+USE bd_pll;
+GO
+--tabla medicacion persona--
+CREATE TABLE  `medicacion` (
+  `ID` int IDENTITY(1,1) NOT NULL primary key ,
+  `nom_medicacion` varchar(50) NOT null);
+  GO
+
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[medicacion ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+
+  
+  --tabla padecimientos  persona--
+  CREATE TABLE   `padecimiento ` (
+  `ID` int IDENTITY(1,1) NOT NULL primary key ,
+ `nom_padecimiento` varchar(50) NOT null );
+GO
+
+
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[padecimiento ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+
+--tabla condicion persona--
+CREATE TABLE  `condicion` (
+ `ID` int IDENTITY(1,1) NOT NULL primary key ,
+ `nombre_condicion` varchar(50) NOT null);
+GO
+
+INSERT [dbo].[condicion  ] ([ID], [nombre_condicion]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[condicion ] ([ID], [nombre_condicion]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[condicion  ] ([ID], [nombre_condicion]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[condicion  ] ([ID], [nombre_condicion]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[condicion  ] ([ID], [nombre_condicion]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[condicion ] ([ID], [nombre_condicion]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[condicion  ] ([ID], [nombre_condicion]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[condicion ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+
+--tabla area interes y especificacion persona--
+CREATE TABLE  `area_interes ` (
+ `ID` int IDENTITY(1,1) NOT NULL primary key ,
+ `areas_interes` varchar(50) NOT null,
+`espec_interes` varchar(50) NOT null );
+GO
+
+INSERT [dbo].[area_interes  ] ([ID], [areas_interes], [espec_interes]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[area_interes] ([ID], [areas_interes], [espec_interes]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[area_interes] ([ID], [areas_interes], [espec_interes]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[area_interes] ([ID], [areas_interes], [espec_interes]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[area_interes ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+--tabla familiar persona--
+CREATE TABLE  `encargado ` (
+ `nombre_fam` varchar(50) DEFAULT NULL,
+ `ced_fam` int NOT NULL primary key,
+ `tel_per` int NOT null,
+ `cel_per` int null,
+ `correo_fam` varchar(100) null);
+ GO
+ 
+INSERT [dbo].[area_interes  ] ([ID], [areas_interes], [espec_interes]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[area_interes] ([ID], [areas_interes], [espec_interes]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[area_interes] ([ID], [areas_interes], [espec_interes]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[area_interes] ([ID], [areas_interes], [espec_interes]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[area_interes ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+ --tabla asistencia persona---
+CREATE TABLE   `asistencia` (
+  `ced_per` int NOT NULL primary key,
+  `fecha` date  NOT NULL primary key,
+  `nom_act` int  NOT NULL primary key identity);
+  GO
+
+
+  
+ --tabla facilitador ---
+CREATE TABLE  `facilitador `(
+ `nom_facilitador` varchar(50) DEFAULT NULL,
+ `ced_facilitador` int NOT NULL primary key,
+ `tel_facilitador` int null );
+ GO
+ 
+
+INSERT [dbo].[facilitador  ] ([ID], [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[facilitador ] ([ID], [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[facilitador  ] ([ID], [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[facilitador ] ([ID], [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[facilitador ] ([ID], [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[facilitador ] ([ID], [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[facilitador ] ([ID], [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[facilitador ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[actividades ] ON 
+GO
+
+  --tabla matricula persona--
+CREATE TABLE    `matricula ` (
+ `nom_per` varchar(50) DEFAULT NULL,
+ `id_act` int IDENTITY(1,1)  NOT NULL primary key  ,
+ `ced_per` int not null);
+GO
+
+--tabla programa actividades--
+CREATE TABLE  `programa ` (
+  `id_prog` int IDENTITY(1,1)  NOT NULL primary key ,
+ `nom_programa` varchar(50) NOT null);
+GO
+
+INSERT [dbo].[programa  ] ([id_prog], [nom_programa]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[programa ] ([id_prog], [nom_programa]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[programa ] ([id_prog], [nom_programa]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[programa  ] ([id_prog], [nom_programa]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[programa ] ([id_prog], [nom_programa]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[programa ] ([id_prog], [nom_programa]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[programa ] ([id_prog], [nom_programa]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[programa ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tipo_act] ON 
+GO
+
+
+--tabla servicios programa--
+CREATE TABLE  `servicios ` (
+  `id-serv` int NOT NULL primary key identity,
+ `nom_servicio` varchar(50) NOT null );
+GO
+ 
+INSERT [dbo].[servicios] ([id-serv], [nom_servicio]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[servicios ] ([id-serv], [nom_servicio]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[servicios] ([id-serv], [nom_servicio]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[servicios] ([id-serv], [nom_servicio]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[servicios] ([id-serv], [nom_servicio]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[servicios] ([id-serv], [nom_servicio]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[servicios] ([id-serv], [nom_servicio]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[servicios] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tipo_act] ON 
+GO
+
+--tabla personas registradas--
+CREATE TABLE `persona`(
+`nom_per` varchar(50) NOT null ,
+`apellido1` varchar(25) NOT null, 
+`apellido2` varchar(25) NOT null,
+`tipo_Id` varchar(25) NOT null,
+`ced_per` int(9) NOT null,
+`tel_per` int(8) NOT null,
+`cel_per` int(8) DEFAULT NULL,
+`sexo` varchar(1) DEFAULT NULL,
+`fecha_nac` date NOT null,
+`email` varchar(100) NOT null,
+`areas_interes` varchar(50) NOT null,
+`espec_interes` varchar(100) null,
+`eje` varchar(25) null,
+`provincia` varchar(25) NOT null,
+`canton` varchar(25) NOT null,
+`distrito` varchar(25) DEFAULT NULL,
+`direccion` varchar(100) DEFAULT NULL,
+`ocupacion` varchar(50)  null,
+`condicion_per` varchar(50) NOT null,
+`grado_acad` varchar(25)  NOT null,
+`padecimientos_per` varchar(200) DEFAULT NULL,
+`medicacion_per` varchar(200) DEFAULT NULL,
+`nombre_fam` varchar(50) NOT null,
+`correo_fam` varchar(100) NOT null,
+`ced_fam` int(9) NOT null,
+`curso_mat` varchar(100) NOT null,
+CONSTRAINT FK_actividad FOREIGN KEY(curso_mat) REFERENCES actividad(nombre),
+CONSTRAINT FK_medicacion FOREIGN KEY(medicacion_per) REFERENCES medicacion(ID),
+CONSTRAINT FK_padecimiento FOREIGN KEY(padecimientos_per) REFERENCES padecimiento(ID),
+CONSTRAINT FK_condicion FOREIGN KEY(condicion_per) REFERENCES condicion(ID),
+CONSTRAINT FK_area_interes FOREIGN KEY(areas_interes) REFERENCES area_interes(areas_interes),
+CONSTRAINT FK_area_interes FOREIGN KEY(espec_interes) REFERENCES area_interes(espec_interes),
+CONSTRAINT FK_encargado FOREIGN KEY(cel_per) REFERENCES encargado(cel_per),
+CONSTRAINT FK_encargado FOREIGN KEY(nombre_fam) REFERENCES encargado(nombre_fam),
+CONSTRAINT FK_encargado FOREIGN KEY(ced_fam) REFERENCES encargado(ced_fam),
+CONSTRAINT FK_encargado FOREIGN KEY(correo_fam) REFERENCES encargado(correo_fam),
+CONSTRAINT FK_encargado FOREIGN KEY(tel_per) REFERENCES encargado(tel_per),
+CONSTRAINT FK_asistencia FOREIGN KEY(ced_per) REFERENCES asistencia(ced_per),
+CONSTRAINT FK_matricula FOREIGN KEY(ced_per) REFERENCES matricula(ced_per),
+CONSTRAINT FK_matricula FOREIGN KEY(nom_per) REFERENCES matricula(nom_per));
+GO
+
+ --tabla actividades --
+CREATE TABLE  'actividad' ( 
+'id_act' int  IDENTITY(1,1)  NOT NULL primary key  ,
+ 'nombre' varchar(50) NOT null,
+ 'eje' varchar(100) NOT null,
+ 'nom_facilitador' varchar(100) NOT null,
+ 'cupo' int NOT null,
+ 'fecha_inicio' date NOT null,
+ 'fecha_final' date NOT null,
+ 'hora_inicio' time NOT null,
+ 'hora_final' time NOT null,
+ 'tipo_act' varchar(100)  null,
+ 'lugar' varchar(100) NOT null,
+ 'estado' varchar(25) NOT null,
+CONSTRAINT FK_asistencia FOREIGN KEY(nombre) REFERENCES asistencia(nom_act),
+CONSTRAINT FK_facilitador FOREIGN KEY(nom_facilitador) REFERENCES facilitador(nom_facilitador),
+CONSTRAINT FK_matricula FOREIGN KEY(id_act) REFERENCES matricula(id_act),
+CONSTRAINT FK_tipo_act FOREIGN KEY(tipo_act) REFERENCES tipo_act(nom_actividad));
+ GO
+ 
+
+--tabla tipo actividades programa o servicios---
+CREATE TABLE  `tipo_act ` (
+  `ID` int IDENTITY(1,1)  NOT NULL primary key 
+ `nom_actividad` varchar(50) NOT null,
+ CONSTRAINT FK_programa FOREIGN KEY(nom_actividad) REFERENCES programa(nom_programa)
+  CONSTRAINT FK_servicios FOREIGN KEY(nom_actividad) REFERENCES servicios(nom_servicio));
+ GO
+
+INSERT [dbo].[tipo_act ] ([ID], [nom_actividad]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[tipo_act  ] ([ID], [nom_actividad]) VALUES (2, N'Finance')
+GO
+INSERT [dbo].[tipo_act ] ([ID], [nom_actividad]) VALUES (3, N'Production')
+GO
+INSERT [dbo].[tipo_act ] ([ID], [nom_actividad]) VALUES (4, N'Research and Development (R&D)')
+GO
+INSERT [dbo].[tipo_act ] ([ID], [nom_actividad]) VALUES (5, N'Purchasing')
+GO
+INSERT [dbo].[tipo_act ] ([ID], [nom_actividad]) VALUES (6, N'Marketing ')
+GO
+INSERT [dbo].[tipo_act ] ([ID], [nom_actividad]) VALUES (7, N'IT')
+GO
+SET IDENTITY_INSERT [dbo].[tipo_act] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+----key---
+ALTER TABLE actividad
+ADD KEY `nombre` (`nombre`),
+ADD KEY `ID` (`ID`),
+ADD KEY `nombre_2` (`nombre`), 
+ADD KEY `nombre_3` (`nombre`);
+GO
+
+ALTER TABLE persona
+  ADD UNIQUE KEY `cedula` (`cedula`),
+  ADD KEY `nombre` (`nombre`),
+  ADD KEY `apellido1` (`apellido1`),
+  ADD KEY `apellido2` (`apellido2`),
+  ADD KEY `ID_2` (`ID`),
+  ADD KEY `nombre_2` (`nombre`),
+  ADD KEY `apellido1_2` (`apellido1`),
+  ADD KEY `apellido2_2` (`apellido2`),
+  ADD KEY `cedula_2` (`cedula`);
+GO
+
+ALTER TABLE `matricula` 
+ ADD KEY `ID` (`ID`),
+ ADD KEY `nombre_actividad` (`id_actividad`),
+ ADD KEY `cedula_user` (`id_user`),
+ ADD KEY `id_actividad` (`id_actividad`),
+ ADD KEY `id_actividad_2` (`id_actividad`),
+ ADD KEY `ced_per` (`ced_per`);
+ GO
