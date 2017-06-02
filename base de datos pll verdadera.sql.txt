@@ -1,128 +1,163 @@
-create database db_pll
+create database db_tcuver
 GO
-USE bd_pll;
+USE bd_tcuver;
 GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 --tabla medicacion persona--
-CREATE TABLE  `medicacion` (
-  `ID` int IDENTITY(1,1) NOT NULL primary key ,
-  `nom_medicacion` varchar(50) NOT null);
+CREATE TABLE  [dbo].[medicacion] (
+  [nom_medicacion] [varchar](50) NOT null,
+  CONSTRAINT [PK_medicacion] PRIMARY KEY CLUSTERED 
+(
+	[nom_medicacion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
   GO
 
-INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (1, 'cataflam')
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (2, N'paracetamol')
+SET QUOTED_IDENTIFIER ON
 GO
 
-SET IDENTITY_INSERT [dbo].[medicacion ] OFF
-GO
-SET IDENTITY_INSERT [dbo].[persona] ON 
-
-  
   --tabla padecimientos  persona--
-  CREATE TABLE   `padecimiento ` (
-  `ID` int IDENTITY(1,1) NOT NULL primary key ,
- `nom_padecimiento` varchar(50) NOT null );
+  CREATE TABLE    [dbo].[padecimiento] (
+  [nom_padecimiento] [varchar](50) NOT null,
+   CONSTRAINT [PK_padecimiento] PRIMARY KEY CLUSTERED 
+(
+	[nom_padecimiento] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-
-INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (1, 'mareos')
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (2, 'gastritis')
+SET QUOTED_IDENTIFIER ON
 GO
-INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (3, 'colitis')
-GO
-SET IDENTITY_INSERT [dbo].[padecimiento ] OFF
-GO
-SET IDENTITY_INSERT [dbo].[persona] ON 
-GO
-
 
 --tabla condicion persona--
-CREATE TABLE  `condicion` (
- `ID` int IDENTITY(1,1) NOT NULL primary key ,
- `nombre_condicion` varchar(50) NOT null);
+CREATE TABLE  [condicion] (
+ [nom_condicion] varchar(50) NOT null,
+   CONSTRAINT [PK_condicion] PRIMARY KEY CLUSTERED 
+(
+	[nom_condicion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-INSERT [dbo].[condicion  ] ([ID], [nombre_condicion]) VALUES (1, N'HR')
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[condicion ] ([ID], [nombre_condicion]) VALUES (2, N'ygy')
+SET QUOTED_IDENTIFIER ON
 GO
-SET IDENTITY_INSERT [dbo].[condicion ] OFF
-GO
-SET IDENTITY_INSERT [dbo].[persona] ON 
-GO
-
 
 --tabla area interes y especificacion persona--
-CREATE TABLE  `area_interes ` (
- `ID` int IDENTITY(1,1) NOT NULL primary key ,
- `areas_interes` varchar(50) NOT null,
-`espec_interes` varchar(50) NOT null );
+CREATE TABLE  [area_interes] (
+[areas_interes] varchar(50) NOT null,
+[espec_interes] varchar(50) NOT null ,
+  CONSTRAINT [PK_area_interes] PRIMARY KEY CLUSTERED 
+(
+	[areas_interes] ASC
+  [espec_interes] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-INSERT [dbo].[area_interes  ] ([ID], [areas_interes], [espec_interes]) VALUES (1, 'programas','qefd')
+
+SET ANSI_NULLS ON
 GO
-INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (2, 'servicios','hdu')
-GO
-SET IDENTITY_INSERT [dbo].[area_interes ] OFF
-GO
-SET IDENTITY_INSERT [dbo].[persona] ON 
+SET QUOTED_IDENTIFIER ON
 GO
 
 --tabla familiar persona--
-CREATE TABLE  `encargado ` (
- `nombre_fam` varchar(50) DEFAULT NULL,
- `ced_fam` int NOT NULL primary key,
- `tel_per` int NOT null,
- `cel_per` int null,
- `correo_fam` varchar(100) null);
- GO
+CREATE TABLE  [encargado] (
+ [nombre_fam] varchar(50) DEFAULT NULL,
+ [ced_fam] int NOT NULL ,
+ [tel_per] int NOT null,
+ [cel_per] int null,
+ [correo_fam] varchar(100) null,
+  CONSTRAINT [PK_encargado] PRIMARY KEY CLUSTERED 
+(
+	[nombre_fam] ASC
+  	[ced_fam] ASC
+    	[tel_per] ASC
+      	[cel_per] ASC
+        	[correo_fam] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
  
-INSERT [dbo].[encargado] ([nombre_fam], [ced_fam], [tel_per]) VALUES (1 'isa', 3748284845,2749-3749,'maryangy@hsvffbf.com')
+ SET ANSI_NULLS ON
 GO
-INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (2, 'luisa'2784687648,3742-7492,'gfugfgfrgf')
-GO
-INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (3, 'carlos',3646883348,4583-2974,'dfugyrfgygur')
-GO
-SET IDENTITY_INSERT [dbo].[area_interes ] OFF
-GO
-SET IDENTITY_INSERT [dbo].[persona] ON 
+SET QUOTED_IDENTIFIER ON
 GO
 
  --tabla asistencia persona---
-CREATE TABLE   `asistencia` (
-  `ced_per` int NOT NULL primary key,
-  `fecha` date  NOT NULL primary key,
-  `nom_act` int  NOT NULL primary key identity);
-  GO
+CREATE TABLE   [asistencia] (
+  [ced_per] int NOT NULL ,
+  [fecha] date  NOT NULL ,
+  [nom_act] int  IDENTITY(1,1) NOT NULL );
+  CONSTRAINT [PK_asistencia] PRIMARY KEY CLUSTERED 
+(
+	[ced_per] ASC,
+ [fecha] ASC,
+ [nom_act] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+ GO
 
+  SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-  
  --tabla facilitador ---
-CREATE TABLE  `facilitador `(
- `nom_facilitador` varchar(50) DEFAULT NULL,
- `ced_facilitador` int NOT NULL primary key,
- `tel_facilitador` int null );
+CREATE TABLE  [facilitador](
+ [nom_facilitador] varchar(50) DEFAULT NULL,
+ [ced_facilitador] int NOT NULL ,
+ [tel_facilitador] int null,
+ CONSTRAINT [PK_facilitador] PRIMARY KEY CLUSTERED 
+(
+	[ced_facilitador] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
  GO
  
+ SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-INSERT [dbo].[facilitador  ] ( [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES ('juan',1163526273,2374-17374)
-GO
-INSERT [dbo].[facilitador ] ( [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES ( 'john',327362838,3252-3263)
-GO
-INSERT [dbo].[facilitador  ] ( [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES ( 'Isabel',328382585,3374-2384)
-GO
-SET IDENTITY_INSERT [dbo].[facilitador ] OFF
-GO
-SET IDENTITY_INSERT [dbo].[actividades ] ON 
-GO
 
   --tabla matricula persona--
-CREATE TABLE    `matricula ` (
- `nom_per` varchar(50) DEFAULT NULL,
- `id_act` int IDENTITY(1,1)  NOT NULL primary key  ,
- `ced_per` int not null);
+CREATE TABLE    [matricula] (
+ [nom_per] varchar(50) DEFAULT NULL,
+ [id_act] int IDENTITY(1,1)  NOT NULL,
+ [ced_per] int not null,
+  CONSTRAINT [PK_matricula] PRIMARY KEY CLUSTERED 
+(
+	[id_act] ASC
+  [nom_per] ASC
+  [ced_per] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF,
+ ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 GO
+
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 
 --tabla programa actividades--
 CREATE TABLE  `programa ` (
@@ -279,3 +314,68 @@ ALTER TABLE `matricula`
  ADD KEY `id_actividad_2` (`id_actividad`),
  ADD KEY `ced_per` (`ced_per`);
  GO
+
+
+INSERT [dbo].[facilitador  ] ( [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES ('juan',1163526273,2374-17374)
+GO
+INSERT [dbo].[facilitador ] ( [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES ( 'john',327362838,3252-3263)
+GO
+INSERT [dbo].[facilitador  ] ( [nom_facilitador], [ced_facilitador], [tel_facilitador]) VALUES ( 'Isabel',328382585,3374-2384)
+GO
+SET IDENTITY_INSERT [dbo].[facilitador ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[actividades ] ON 
+GO
+
+
+INSERT [dbo].[encargado] ([nombre_fam], [ced_fam], [tel_per]) VALUES (1 'isa', 3748284845,2749-3749,'maryangy@hsvffbf.com')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (2, 'luisa'2784687648,3742-7492,'gfugfgfrgf')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (3, 'carlos',3646883348,4583-2974,'dfugyrfgygur')
+GO
+SET IDENTITY_INSERT [dbo].[area_interes ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+
+
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (1, 'cataflam')
+GO
+INSERT [dbo].[medicacion] ([ID], [nom_medicacion]) VALUES (2, N'paracetamol')
+GO
+
+
+
+
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (1, 'mareos')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (2, 'gastritis')
+GO
+INSERT [dbo].[padecimientos  ] ([ID], [nom_padecimiento]) VALUES (3, 'colitis')
+GO
+SET IDENTITY_INSERT [dbo].[padecimiento ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+
+INSERT [dbo].[condicion  ] ([ID], [nombre_condicion]) VALUES (1, N'HR')
+GO
+INSERT [dbo].[condicion ] ([ID], [nombre_condicion]) VALUES (2, N'ygy')
+GO
+SET IDENTITY_INSERT [dbo].[condicion ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
+
+
+INSERT [dbo].[area_interes  ] ([ID], [areas_interes], [espec_interes]) VALUES (1, 'programas','qefd')
+GO
+INSERT [dbo].[area_interes ] ([ID], [areas_interes], [espec_interes]) VALUES (2, 'servicios','hdu')
+GO
+SET IDENTITY_INSERT [dbo].[area_interes ] OFF
+GO
+SET IDENTITY_INSERT [dbo].[persona] ON 
+GO
